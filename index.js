@@ -1,14 +1,26 @@
 let filter = require("./filter.js")
 
-let target = "niagra"
+let target = "niagara"
 
-//this is not ok
-filter("🇳ɪa🇬ra", target).then(a => console.log(a)) // unicode example
-filter("Niagra is beautiful!!!", target).then(a => console.log(a)) //this works with sentances btw
-filter("n.i.a.g.r.a", target).then(a => console.log(a)) // someone really trying example
-filter("n  @#$@i#@$ a   !$#%^#   g#@$@#r #$@#  a", target).then(a => console.log(a)) // someone really trying example
-filter("nagra", target).then(a => console.log(a)) //simularity example
-filter("neagara", target).then(a => console.log(a)) // "sounds like" example
+//positive results
+filter("🇳ɪa🇬ara", target)
+.then(result => {if (result) console.log(result)}) // unicode example
 
-//this is ok
-filter("The waterfall is beautiful!!!", target).then(a => console.log(a))
+filter("Niagara is beautiful!!!", target)
+.then(result => {if (result) console.log(result)}) // works with sentances btw
+
+filter("n.i.a.g.a.r.a", target)
+.then(result => {if (result) console.log(result)}) // someone really trying example
+
+filter("n  @#$@i#@$ a   !$#%^#   g#@$a@#r #$@#  a", target)
+.then(result => {if (result) console.log(result)}) // someone really trying example
+
+filter("nagra", target)
+.then(result => {if (result) console.log(result)}) // simularity example
+
+filter("neagra", target)
+.then(result => {if (result) console.log(result)}) // "sounds like" example
+
+//negative result
+filter("The waterfall is beautiful!!!", target)
+.then(result => {if (result) {console.log(result)} else {console.log("All good here")}} )

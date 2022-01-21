@@ -5,6 +5,7 @@ If anyone has any idea on improving this reach out on discord (GamBar#6498), not
 > If you want a quick list of bad words to test it with see [List of Bad Words](https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words)
 
 It uses:
+- Regex
 - Unicode's [confusables](https://www.unicode.org/Public/security/latest/confusables.txt) security list with some modifications
 - [Metaphone](https://en.wikipedia.org/wiki/Metaphone) phonetic algorithm [npm](https://www.npmjs.com/package/metaphone)
 - [Stemmer](https://en.wikipedia.org/wiki/Stemming) - [npm](https://www.npmjs.com/package/stemmer)

@@ -37,7 +37,8 @@ module.exports = async function filter(word, target, whitelist) {
   if (new RegExp(target, 'gi').test(veryNormalized)) return `${original} normalized and matched with ${target}`;
 
   //2.5 after normalization check whitelist
-  if (whitelist.includes(word)) return;
+  let containsWhitelisted = word.split(' ').some(w => whitelist.includes(w));
+  if (containsWhitelisted) return;
 
   //3. simularuty - for each
   let each = word.split(' ');
